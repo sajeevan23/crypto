@@ -12,6 +12,15 @@ export class CoinOfTheDayComponent implements OnInit {
   constructor(private coinOfTheDaySeverice: CoinOfTheDayService) { }
 
   ngOnInit(): void {
+    this.coinOfTheDay = this.coinOfTheDaySeverice.coin;
+
+    if (!this.coinOfTheDay) {
+      // make the api request
+      this.coinOfTheDaySeverice.fetchCoinOfTheDay().subscribe(()=> {
+        this.coinOfTheDay = this.coinOfTheDaySeverice.coin;
+      });
+    }
+
   }
 
 }
