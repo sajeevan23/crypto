@@ -4,16 +4,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DashboardComponent,
-  },
-  { path: 'crypto/:id',
-   loadChildren: () => import('./crypto-details/crypto-details.module').then(m => m.CryptoDetailsModule) },
-  {
-    path: '**',
-    component: PageNotFoundComponent,
-  }
+  { path: '', component: DashboardComponent },
+  { path: 'crypto/:id', loadChildren: () => import('./crypto-details/crypto-details.module').then(m => m.CryptoDetailsModule) },
+  { path: 'auth/signup', loadChildren: () => import('./auth/signup/signup.module').then(m => m.SignupModule) },
+  { path: '**', component: PageNotFoundComponent }
 
 ];
 

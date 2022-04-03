@@ -5,8 +5,9 @@
   <mat-card-content>
     <mat-nav-list>
       <mat-list-item *ngFor="let crypto of marketData" 
-      [class.bg-bad]="crypto.pc < 0" 
+      [class.bg-danger]="crypto.pc < 0" 
       [class.bg-success]="crypto.pc >= 0" 
+      [class.bg-secondary]="crypto.pc === 0" 
       class="text-white" 
       [routerLink]="['crypto', crypto.s]"
       >
